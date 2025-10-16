@@ -1,4 +1,4 @@
-# 🎮 Rank/ELO Simulator
+#  Rank/ELO Simulator
 
 A lightweight simulation engine for ranking systems used in competitive games (similar to Elo in chess or MMR in online games like League of Legends, Valorant, Dota 2 and CS2).
 

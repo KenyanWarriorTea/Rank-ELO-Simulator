@@ -3,7 +3,9 @@ from typing import List, Dict
 import time
 import json
 
-@dataclass
+from src.ranks import rating_to_tier
+
+dataclass
 class Player:
     id: int
     name: str
@@ -11,6 +13,7 @@ class Player:
     win_streak: int = 0
     last_active: float = field(default_factory=lambda: time.time())
     history: List[Dict] = field(default_factory=list)
+    tier: Dict = field(default_factory=lambda: rating_to_tier(1500.0))
 
     def record_match(self, opponent_id: int, result: float, delta: float) -> None:
         """Record a match result for this player.
@@ -24,17 +27,21 @@ class Player:
         else:
             self.win_streak = 0
         self.rating += delta
+        # Update tier after rating change
+        self.tier = rating_to_tier(self.rating)
         self.history.append({
             "time": self.last_active,
             "opponent_id": opponent_id,
             "result": result,
             "delta": delta,
             "rating": self.rating,
+            "tier": self.tier,
         })
 
     def apply_decay(self, decay_amount: float) -> None:
         """Apply rating decay due to inactivity."""
         self.rating = max(100.0, self.rating - decay_amount)
+        self.tier = rating_to_tier(self.rating)
 
     def to_dict(self) -> Dict:
         return {
@@ -44,6 +51,7 @@ class Player:
             "win_streak": self.win_streak,
             "last_active": self.last_active,
             "history": self.history,
+            "tier": self.tier,
         }
 
     @staticmethod
@@ -52,6 +60,8 @@ class Player:
         p.win_streak = d.get("win_streak", 0)
         p.last_active = d.get("last_active", time.time())
         p.history = d.get("history", [])
+        # load tier if present, otherwise recalc
+        p.tier = d.get("tier", rating_to_tier(p.rating))
         return p
 
 # Helper functions for loading/saving player lists

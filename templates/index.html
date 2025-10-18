@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Rank/ELO Simulator</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width:900px; margin: 20px auto; }
+    .controls { display:flex; gap:8px; flex-wrap:wrap; }
+    input, button { padding:6px 8px; }
+    #log { height:300px; overflow:auto; border:1px solid #ccc; padding:8px; white-space:pre-wrap; background:#fafafa; }
+  </style>
+</head>
+<body>
+  <h1>Rank/ELO Simulator (Web UI)</h1>
+  <div class="controls">
+    <button id="init">Init players</button>
+    <input id="matches" type="number" value="100" min="1" />
+    <input id="seed" type="text" placeholder="seed (optional)" />
+    <input id="k" type="number" value="32" step="0.1" />
+    <label><input id="arcade" type="checkbox" /> Arcade</label>
+    <input id="streak" type="number" value="0" step="0.01" />
+    <input id="decay" type="number" value="0" step="0.1" />
+    <button id="run">Run simulation</button>
+    <button id="top">Show top</button>
+  </div>
+  <h3>Log</h3>
+  <div id="log">Ready.</div>
+
+<script>
+function log(msg){ const e=document.getElementById('log'); e.textContent += '\n'+msg; e.scrollTop=e.scrollHeight; }
+
+document.getElementById('init').onclick = async () => {
+  const res = await fetch('/api/init', {method:'POST'}); const j=await res.json(); log(JSON.stringify(j));
+};
+document.getElementById('run').onclick = async () => {
+  const payload = {
+    matches: parseInt(document.getElementById('matches').value),
+    seed: document.getElementById('seed').value,
+    k: parseFloat(document.getElementById('k').value),
+    arcade: document.getElementById('arcade').checked,
+    streak: parseFloat(document.getElementById('streak').value),
+    decay: parseFloat(document.getElementById('decay').value)
+  };
+  log('Starting simulation...');
+  const res = await fetch('/api/run', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+  const j = await res.json(); log(JSON.stringify(j)); 
+};
+document.getElementById('top').onclick = async () => {
+  const res = await fetch('/api/top'); const j = await res.json(); log(JSON.stringify(j));
+};
+</script>
+</body>
+</html>

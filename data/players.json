@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  },
+  {
+    "id": 3,
+    "name": "Carol",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  },
+  {
+    "id": 4,
+    "name": "Dave",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  },
+  {
+    "id": 5,
+    "name": "Eve",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  },
+  {
+    "id": 6,
+    "name": "Frank",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  },
+  {
+    "id": 7,
+    "name": "Grace",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  },
+  {
+    "id": 8,
+    "name": "Heidi",
+    "rating": 1500,
+    "win_streak": 0,
+    "last_active": 0,
+    "history": []
+  }
+]

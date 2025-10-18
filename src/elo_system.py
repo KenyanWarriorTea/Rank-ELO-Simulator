@@ -1,4 +1,5 @@
-ELO system: expected score and rating delta calculation.
+"""ELO system: expected score and rating delta calculation.
+"""
 from typing import Tuple
 
 def expected_score(rating_a: float, rating_b: float) -> float:

@@ -25,7 +25,7 @@ def main(argv=None):
     parser.add_argument("--k", type=float, default=32.0, help="ELO K-factor")
     parser.add_argument("--arcade", action="store_true", help="Enable win-streak arcade bonus")
     parser.add_argument("--streak-bonus", type=float, default=0.0,
-                        help="Per-win-streak bonus fraction (e.g. 0.1 for 10%)")
+                        help="Per-win-streak bonus fraction (e.g. 0.1 for 10 percent)")
     parser.add_argument("--decay-per-day", type=float, default=0.0,
                         help="Rating decay applied per inactive day")
     parser.add_argument("--seed", type=int, default=None, help="Random seed")

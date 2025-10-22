@@ -5,7 +5,7 @@ import json
 
 from src.ranks import rating_to_tier
 
-dataclass
+@dataclass
 class Player:
     id: int
     name: str

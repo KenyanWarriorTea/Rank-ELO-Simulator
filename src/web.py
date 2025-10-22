@@ -31,7 +31,8 @@ def api_init():
         save_players(DEFAULT_PLAYERS_FILE, players)
         return jsonify({'status': 'ok', 'message': f'Created 8 sample players'}), 200
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_init: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to initialize players'}), 500
 
 @app.route('/api/top', methods=['GET'])
 def api_top():
@@ -43,7 +44,8 @@ def api_top():
         data = [{'id': p.id, 'name': p.name, 'rating': p.rating, 'tier': p.tier, 'win_streak': p.win_streak} for p in players_sorted[:20]]
         return jsonify({'status': 'ok', 'top': data})
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_top: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to load top players'}), 500
 
 @app.route('/api/players', methods=['GET'])
 def api_players_list():
@@ -55,7 +57,8 @@ def api_players_list():
         data = [{'id': p.id, 'name': p.name, 'rating': p.rating, 'tier': p.tier, 'win_streak': p.win_streak, 'history': p.history} for p in players_sorted]
         return jsonify({'status': 'ok', 'players': data})
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_players_list: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to load players'}), 500
 
 @app.route('/api/players', methods=['POST'])
 def api_add_player():
@@ -78,7 +81,8 @@ def api_add_player():
         save_players(DEFAULT_PLAYERS_FILE, players)
         return jsonify({'status': 'ok', 'message': f'Added player {name}', 'player': new_player.to_dict()}), 200
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_add_player: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to add player'}), 500
 
 @app.route('/api/analytics', methods=['GET'])
 def api_analytics():
@@ -122,7 +126,8 @@ def api_analytics():
             }
         }), 200
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_analytics: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to load analytics'}), 500
 
 @app.route('/api/run', methods=['POST'])
 def api_run():
@@ -149,7 +154,8 @@ def api_run():
         top = [{'id': p.id, 'name': p.name, 'rating': p.rating, 'tier': p.tier, 'win_streak': p.win_streak} for p in players_sorted[:10]]
         return jsonify({'status': 'ok', 'matches': len(records), 'top': top}), 200
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_run: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to run simulation'}), 500
 
 @app.route('/api/reset', methods=['POST'])
 def api_reset():
@@ -158,7 +164,8 @@ def api_reset():
             os.remove(DEFAULT_PLAYERS_FILE)
         return jsonify({'status': 'ok', 'message': 'All data reset successfully'}), 200
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_reset: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to reset data'}), 500
 
 @app.route('/api/export', methods=['GET'])
 def api_export():
@@ -178,7 +185,8 @@ def api_export():
         
         return send_file(temp_path, as_attachment=True, download_name=f'elo-simulation-{int(time.time())}.json', mimetype='application/json')
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(f"Error in api_export: {e}")
+        return jsonify({'status': 'error', 'message': 'Failed to export data'}), 500
 
 
 def run_web(host: str = '127.0.0.1', port: int = 5000, debug: bool = False):

@@ -2,13 +2,183 @@
   {
     "id": 1,
     "name": "Player_1",
-    "rating": 1534.9154462601543,
-    "win_streak": 1,
-    "last_active": 1761138331.5609462,
+    "rating": 1475.8369013949693,
+    "win_streak": 2,
+    "last_active": 1761138975.2553372,
     "history": [
       {
-        "time": 1761138331.559926,
+        "time": 1761138975.2547047,
+        "opponent_id": 2,
+        "result": 0.0,
+        "delta": -16.736306793521994,
+        "rating": 1483.263693206478,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2547688,
+        "opponent_id": 7,
+        "result": 1.0,
+        "delta": 16.770139814642736,
+        "rating": 1500.0338330211207,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2548213,
+        "opponent_id": 6,
+        "result": 0.0,
+        "delta": -16.001558068196744,
+        "rating": 1484.032274952924,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.254913,
+        "opponent_id": 4,
+        "result": 0.0,
+        "delta": -13.711205934334167,
+        "rating": 1470.3210690185897,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.254986,
+        "opponent_id": 7,
+        "result": 0.0,
+        "delta": -13.842357611424584,
+        "rating": 1456.478711407165,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255128,
+        "opponent_id": 8,
+        "result": 0.0,
+        "delta": -12.913647265366814,
+        "rating": 1443.5650641417983,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552218,
         "opponent_id": 3,
+        "result": 0.0,
+        "delta": -14.308497961356561,
+        "rating": 1429.2565661804417,
+        "tier": {
+          "tier": "Platinum",
+          "division": "I",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255231,
+        "opponent_id": 4,
+        "result": 0.0,
+        "delta": -9.247472090082479,
+        "rating": 1420.0090940903592,
+        "tier": {
+          "tier": "Platinum",
+          "division": "I",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255267,
+        "opponent_id": 8,
+        "result": 1.0,
+        "delta": 20.372427147191466,
+        "rating": 1440.3815212375507,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255276,
+        "opponent_id": 5,
+        "result": 1.0,
+        "delta": 17.002685700508245,
+        "rating": 1457.384206938059,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2553113,
+        "opponent_id": 8,
+        "result": 0.0,
+        "delta": -14.180847569132986,
+        "rating": 1443.203359368926,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2553284,
+        "opponent_id": 6,
+        "result": 1.0,
+        "delta": 17.10347005153791,
+        "rating": 1460.3068294204638,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2553372,
+        "opponent_id": 6,
+        "result": 1.0,
+        "delta": 15.530071974505539,
+        "rating": 1475.8369013949693,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      }
+    ],
+    "tier": {
+      "tier": "Platinum",
+      "division": "III",
+      "color": "#2ee8c7"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Player_2",
+    "rating": 1475.678910374032,
+    "win_streak": 1,
+    "last_active": 1761138975.2552612,
+    "history": [
+      {
+        "time": 1761138975.2546813,
+        "opponent_id": 4,
         "result": 0.0,
         "delta": -16.0,
         "rating": 1484.0,
@@ -19,23 +189,11 @@
         }
       },
       {
-        "time": 1761138331.5599568,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -15.263693206478006,
-        "rating": 1468.736306793522,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600004,
-        "opponent_id": 3,
+        "time": 1761138975.2547095,
+        "opponent_id": 1,
         "result": 1.0,
-        "delta": 17.405247292464274,
-        "rating": 1486.1415540859864,
+        "delta": 16.736306793521994,
+        "rating": 1500.736306793522,
         "tier": {
           "tier": "Platinum",
           "division": "III",
@@ -43,95 +201,11 @@
         }
       },
       {
-        "time": 1761138331.56007,
-        "opponent_id": 5,
-        "result": 0.0,
-        "delta": -16.064713676468543,
-        "rating": 1470.076840409518,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603316,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 18.434791442781897,
-        "rating": 1488.5116318522998,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603466,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -15.15462419425689,
-        "rating": 1473.357007658043,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -13.260051586438816,
-        "rating": 1460.0969560716042,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560409,
-        "opponent_id": 4,
-        "result": 1.0,
-        "delta": 16.58662051842228,
-        "rating": 1476.6835765900264,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604866,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 18.83183322549016,
-        "rating": 1495.5154098155165,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605562,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 16.312905254632035,
-        "rating": 1511.8283150701486,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606227,
+        "time": 1761138975.2547355,
         "opponent_id": 5,
         "result": 1.0,
-        "delta": 15.225389594682577,
-        "rating": 1527.0537046648312,
+        "delta": 15.966091869830805,
+        "rating": 1516.7023986633528,
         "tier": {
           "tier": "Platinum",
           "division": "IV",
@@ -139,121 +213,109 @@
         }
       },
       {
-        "time": 1761138331.5606642,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 15.275374721634986,
-        "rating": 1542.3290793864662,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606797,
-        "opponent_id": 4,
-        "result": 1.0,
-        "delta": 14.124370458135322,
-        "rating": 1556.4534498446014,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5607145,
-        "opponent_id": 5,
+        "time": 1761138975.2547584,
+        "opponent_id": 3,
         "result": 0.0,
-        "delta": -20.7588637602058,
-        "rating": 1535.6945860843957,
+        "delta": -15.36345731608088,
+        "rating": 1501.3389413472719,
         "tier": {
           "tier": "Platinum",
-          "division": "IV",
+          "division": "III",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5608346,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 9.847944494100197,
-        "rating": 1545.5425305784959,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5608773,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 8.287971222901845,
-        "rating": 1553.8305018013978,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5609066,
+        "time": 1761138975.2547843,
         "opponent_id": 8,
         "result": 0.0,
-        "delta": -18.935061674426255,
-        "rating": 1534.8954401269716,
+        "delta": -16.797825524012524,
+        "rating": 1484.5411158232594,
         "tier": {
           "tier": "Platinum",
-          "division": "IV",
+          "division": "III",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5609355,
-        "opponent_id": 4,
+        "time": 1761138975.254797,
+        "opponent_id": 8,
         "result": 0.0,
-        "delta": -14.71122415988469,
-        "rating": 1520.1842159670869,
+        "delta": -15.251896727165834,
+        "rating": 1469.2892190960936,
         "tier": {
           "tier": "Platinum",
-          "division": "IV",
+          "division": "II",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5609462,
+        "time": 1761138975.2551904,
         "opponent_id": 6,
-        "result": 1.0,
-        "delta": 14.731230293067458,
-        "rating": 1534.9154462601543,
+        "result": 0.0,
+        "delta": -16.872201756583543,
+        "rating": 1452.41701733951,
         "tier": {
           "tier": "Platinum",
-          "division": "IV",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551994,
+        "opponent_id": 8,
+        "result": 1.0,
+        "delta": 19.831393412469335,
+        "rating": 1472.2484107519795,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552524,
+        "opponent_id": 3,
+        "result": 0.0,
+        "delta": -14.965584749485263,
+        "rating": 1457.2828260024942,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552612,
+        "opponent_id": 3,
+        "result": 1.0,
+        "delta": 18.396084371537818,
+        "rating": 1475.678910374032,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
           "color": "#2ee8c7"
         }
       }
     ],
     "tier": {
       "tier": "Platinum",
-      "division": "IV",
+      "division": "III",
       "color": "#2ee8c7"
     }
   },
   {
-    "id": 2,
-    "name": "Player_2",
-    "rating": 1569.7836512047313,
-    "win_streak": 3,
-    "last_active": 1761138331.5610073,
+    "id": 3,
+    "name": "Player_3",
+    "rating": 1500.0715689557162,
+    "win_streak": 1,
+    "last_active": 1761138975.2553055,
     "history": [
       {
-        "time": 1761138331.5599532,
-        "opponent_id": 1,
+        "time": 1761138975.2547235,
+        "opponent_id": 8,
         "result": 1.0,
-        "delta": 15.263693206478006,
-        "rating": 1515.263693206478,
+        "delta": 16.0,
+        "rating": 1516.0,
         "tier": {
           "tier": "Platinum",
           "division": "IV",
@@ -261,119 +323,337 @@
         }
       },
       {
-        "time": 1761138331.5599642,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -17.43587287827629,
-        "rating": 1497.8278203282016,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600257,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -15.301431674265011,
-        "rating": 1482.5263886539367,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600796,
-        "opponent_id": 4,
+        "time": 1761138975.2547467,
+        "opponent_id": 5,
         "result": 1.0,
-        "delta": 16.885741174475058,
-        "rating": 1499.4121298284117,
+        "delta": 14.532046840062641,
+        "rating": 1530.5320468400625,
         "tier": {
           "tier": "Platinum",
-          "division": "III",
+          "division": "IV",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5601056,
-        "opponent_id": 7,
+        "time": 1761138975.254754,
+        "opponent_id": 2,
+        "result": 1.0,
+        "delta": 15.36345731608088,
+        "rating": 1545.8955041561435,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2548316,
+        "opponent_id": 8,
+        "result": 1.0,
+        "delta": 15.362610226170489,
+        "rating": 1561.258114382314,
+        "tier": {
+          "tier": "Diamond",
+          "division": "I",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.2548683,
+        "opponent_id": 4,
         "result": 0.0,
-        "delta": -13.784616784319729,
-        "rating": 1485.627513044092,
+        "delta": -18.072336213451848,
+        "rating": 1543.1857781688623,
         "tier": {
           "tier": "Platinum",
-          "division": "III",
+          "division": "IV",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5601342,
+        "time": 1761138975.2548862,
         "opponent_id": 6,
         "result": 0.0,
-        "delta": -16.75445100642655,
-        "rating": 1468.8730620376655,
+        "delta": -18.698129091266292,
+        "rating": 1524.487649077596,
         "tier": {
           "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2549517,
+        "opponent_id": 8,
+        "result": 0.0,
+        "delta": -14.989932748645856,
+        "rating": 1509.49771632895,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2550004,
+        "opponent_id": 6,
+        "result": 1.0,
+        "delta": 14.221119142469252,
+        "rating": 1523.7188354714192,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2550194,
+        "opponent_id": 4,
+        "result": 0.0,
+        "delta": -14.893378316548322,
+        "rating": 1508.825457154871,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551024,
+        "opponent_id": 7,
+        "result": 0.0,
+        "delta": -14.966304225963363,
+        "rating": 1493.8591529289076,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551126,
+        "opponent_id": 8,
+        "result": 1.0,
+        "delta": 18.228963220156505,
+        "rating": 1512.088116149064,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551591,
+        "opponent_id": 5,
+        "result": 0.0,
+        "delta": -18.60207518845779,
+        "rating": 1493.4860409606063,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552054,
+        "opponent_id": 7,
+        "result": 0.0,
+        "delta": -13.052712478716987,
+        "rating": 1480.4333284818892,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552187,
+        "opponent_id": 1,
+        "result": 1.0,
+        "delta": 14.308497961356561,
+        "rating": 1494.7418264432458,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552495,
+        "opponent_id": 2,
+        "result": 1.0,
+        "delta": 14.965584749485263,
+        "rating": 1509.7074111927311,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255258,
+        "opponent_id": 2,
+        "result": 0.0,
+        "delta": -18.396084371537818,
+        "rating": 1491.3113268211932,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552931,
+        "opponent_id": 7,
+        "result": 0.0,
+        "delta": -11.643303358271442,
+        "rating": 1479.6680234629218,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2553055,
+        "opponent_id": 4,
+        "result": 1.0,
+        "delta": 20.40354549279434,
+        "rating": 1500.0715689557162,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      }
+    ],
+    "tier": {
+      "tier": "Platinum",
+      "division": "III",
+      "color": "#2ee8c7"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Player_4",
+    "rating": 1557.4166427994596,
+    "win_streak": 0,
+    "last_active": 1761138975.2553022,
+    "history": [
+      {
+        "time": 1761138975.2546887,
+        "opponent_id": 2,
+        "result": 1.0,
+        "delta": 16.0,
+        "rating": 1516.0,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.254807,
+        "opponent_id": 8,
+        "result": 0.0,
+        "delta": -15.997710205728566,
+        "rating": 1500.0022897942715,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2548513,
+        "opponent_id": 6,
+        "result": 1.0,
+        "delta": 16.00141533968616,
+        "rating": 1516.0037051339577,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2548625,
+        "opponent_id": 3,
+        "result": 1.0,
+        "delta": 18.072336213451848,
+        "rating": 1534.0760413474095,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2549078,
+        "opponent_id": 1,
+        "result": 1.0,
+        "delta": 13.711205934334167,
+        "rating": 1547.7872472817437,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2550254,
+        "opponent_id": 3,
+        "result": 1.0,
+        "delta": 14.893378316548322,
+        "rating": 1562.680625598292,
+        "tier": {
+          "tier": "Diamond",
+          "division": "I",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.2551682,
+        "opponent_id": 6,
+        "result": 1.0,
+        "delta": 11.481078276115909,
+        "rating": 1574.161703874408,
+        "tier": {
+          "tier": "Diamond",
+          "division": "I",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.2551777,
+        "opponent_id": 5,
+        "result": 1.0,
+        "delta": 11.49751292110551,
+        "rating": 1585.6592167955134,
+        "tier": {
+          "tier": "Diamond",
+          "division": "I",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.255234,
+        "opponent_id": 1,
+        "result": 1.0,
+        "delta": 9.247472090082479,
+        "rating": 1594.906688885596,
+        "tier": {
+          "tier": "Diamond",
           "division": "II",
-          "color": "#2ee8c7"
+          "color": "#4cc9ff"
         }
       },
       {
-        "time": 1761138331.5602658,
+        "time": 1761138975.2552402,
         "opponent_id": 7,
-        "result": 1.0,
-        "delta": 19.8889057751732,
-        "rating": 1488.7619678128387,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560322,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 18.123877237719576,
-        "rating": 1506.8858450505584,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603497,
-        "opponent_id": 1,
-        "result": 1.0,
-        "delta": 15.15462419425689,
-        "rating": 1522.0404692448153,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603607,
-        "opponent_id": 4,
-        "result": 1.0,
-        "delta": 14.402893529588335,
-        "rating": 1536.4433627744036,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603826,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 14.349445685278452,
-        "rating": 1550.792808459682,
+        "result": 0.0,
+        "delta": -17.086500593342,
+        "rating": 1577.820188292254,
         "tier": {
           "tier": "Diamond",
           "division": "I",
@@ -381,203 +661,11 @@
         }
       },
       {
-        "time": 1761138331.5603943,
+        "time": 1761138975.2553022,
         "opponent_id": 3,
         "result": 0.0,
-        "delta": -17.34652983676992,
-        "rating": 1533.4462786229121,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560403,
-        "opponent_id": 1,
-        "result": 1.0,
-        "delta": 13.260051586438816,
-        "rating": 1546.7063302093509,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604386,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 12.194062467599313,
-        "rating": 1558.90039267695,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5604749,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 11.259770520379401,
-        "rating": 1570.1601631973294,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5604994,
-        "opponent_id": 6,
-        "result": 0.0,
-        "delta": -19.95980189745668,
-        "rating": 1550.2003612998728,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5605748,
-        "opponent_id": 6,
-        "result": 0.0,
-        "delta": -18.923427018329566,
-        "rating": 1531.2769342815432,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560629,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 11.40960992972673,
-        "rating": 1542.6865442112698,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606413,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 10.464413252621844,
-        "rating": 1553.1509574638917,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.560708,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 9.634275761625524,
-        "rating": 1562.7852332255172,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5607758,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 15.907604112945023,
-        "rating": 1578.6928373384621,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5608137,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -20.912920070575897,
-        "rating": 1557.7799172678863,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5608885,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 7.583231468508213,
-        "rating": 1565.3631487363946,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5609267,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -17.41194597449577,
-        "rating": 1547.951202761899,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609581,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -18.51869107795211,
-        "rating": 1529.4325116839468,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609741,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 13.641569783700405,
-        "rating": 1543.0740814676471,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609987,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 13.980654636342248,
-        "rating": 1557.0547361039894,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5610073,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 12.728915100741839,
-        "rating": 1569.7836512047313,
+        "delta": -20.40354549279434,
+        "rating": 1557.4166427994596,
         "tier": {
           "tier": "Diamond",
           "division": "I",
@@ -592,862 +680,18 @@
     }
   },
   {
-    "id": 3,
-    "name": "Player_3",
-    "rating": 1537.2127218667692,
-    "win_streak": 0,
-    "last_active": 1761138331.560964,
-    "history": [
-      {
-        "time": 1761138331.559931,
-        "opponent_id": 1,
-        "result": 1.0,
-        "delta": 16.0,
-        "rating": 1516.0,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5599875,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -16.67031026376628,
-        "rating": 1499.3296897362338,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560004,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -17.405247292464274,
-        "rating": 1481.9244424437695,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600135,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 18.257004655133265,
-        "rating": 1500.1814470989027,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600314,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 17.29245892504354,
-        "rating": 1517.4739060239463,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600963,
-        "opponent_id": 7,
-        "result": 0.0,
-        "delta": -15.307436248793977,
-        "rating": 1502.1664697751523,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601187,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 15.93711905943654,
-        "rating": 1518.103588834589,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601246,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -15.655413472485305,
-        "rating": 1502.4481753621035,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601604,
-        "opponent_id": 7,
-        "result": 0.0,
-        "delta": -13.301340836225574,
-        "rating": 1489.146834525878,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.56017,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 19.871468593992855,
-        "rating": 1509.0183031198708,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603015,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 14.34323869661331,
-        "rating": 1523.361541816484,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603282,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -18.434791442781897,
-        "rating": 1504.9267503737021,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603406,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 16.557208850427653,
-        "rating": 1521.4839592241299,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603907,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 17.34652983676992,
-        "rating": 1538.8304890608997,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604837,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -18.83183322549016,
-        "rating": 1519.9986558354096,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605454,
-        "opponent_id": 4,
-        "result": 1.0,
-        "delta": 15.875140999653812,
-        "rating": 1535.8737968350636,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606506,
-        "opponent_id": 6,
-        "result": 0.0,
-        "delta": -18.344848686541855,
-        "rating": 1517.5289481485217,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607448,
-        "opponent_id": 4,
-        "result": 1.0,
-        "delta": 17.090076014544174,
-        "rating": 1534.619024163066,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560753,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 12.495441008747502,
-        "rating": 1547.1144651718134,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607653,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 13.664394555961156,
-        "rating": 1560.7788597277745,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5607789,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -15.907604112945023,
-        "rating": 1544.8712556148294,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607848,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -16.953289143109906,
-        "rating": 1527.9179664717194,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607936,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 13.914288391328451,
-        "rating": 1541.8322548630479,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5608046,
-        "opponent_id": 7,
-        "result": 0.0,
-        "delta": -22.710992548328168,
-        "rating": 1519.1212623147196,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609188,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 15.501907241063345,
-        "rating": 1534.6231695557829,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609298,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 17.41194597449577,
-        "rating": 1552.0351155302785,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.560964,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -14.822393663509168,
-        "rating": 1537.2127218667692,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      }
-    ],
-    "tier": {
-      "tier": "Platinum",
-      "division": "IV",
-      "color": "#2ee8c7"
-    }
-  },
-  {
-    "id": 4,
-    "name": "Player_4",
-    "rating": 1614.0284818793843,
-    "win_streak": 7,
-    "last_active": 1761138331.5610325,
-    "history": [
-      {
-        "time": 1761138331.5599406,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -16.0,
-        "rating": 1484.0,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.559968,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 17.43587287827629,
-        "rating": 1501.4358728782763,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.559991,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 16.67031026376628,
-        "rating": 1518.1061831420425,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600452,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -16.32648527284629,
-        "rating": 1501.7796978691963,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560083,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -16.885741174475058,
-        "rating": 1484.8939566947213,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601842,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -13.619026250722344,
-        "rating": 1471.274930443999,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560279,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 15.968934219944472,
-        "rating": 1487.2438646639434,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560356,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -14.402893529588335,
-        "rating": 1472.8409711343552,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604122,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -16.58662051842228,
-        "rating": 1456.254350615933,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604181,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 17.37219790005257,
-        "rating": 1473.6265485159854,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604274,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 15.775553248754846,
-        "rating": 1489.4021017647403,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604513,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 14.328675332534742,
-        "rating": 1503.730777097275,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560457,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 13.55654495607396,
-        "rating": 1517.287322053349,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605407,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -15.875140999653812,
-        "rating": 1501.4121810536951,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606763,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -14.124370458135322,
-        "rating": 1487.28781059556,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606887,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 15.653814486111314,
-        "rating": 1502.9416250816712,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606978,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 14.219396860826123,
-        "rating": 1517.1610219424974,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607235,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 10.685591072702461,
-        "rating": 1527.8466130151999,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607321,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 13.389761172152973,
-        "rating": 1541.2363741873528,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607479,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -17.090076014544174,
-        "rating": 1524.1462981728087,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560788,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 16.953289143109906,
-        "rating": 1541.0995873159186,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5608683,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 14.43515405033921,
-        "rating": 1555.5347413662578,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.560898,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 7.406870925319549,
-        "rating": 1562.9416122915773,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5609386,
-        "opponent_id": 1,
-        "result": 1.0,
-        "delta": 14.71122415988469,
-        "rating": 1577.652836451462,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5609674,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 14.822393663509168,
-        "rating": 1592.4752301149713,
-        "tier": {
-          "tier": "Diamond",
-          "division": "II",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.560984,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 12.32912248365426,
-        "rating": 1604.8043525986254,
-        "tier": {
-          "tier": "Diamond",
-          "division": "II",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5610325,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 9.224129280758994,
-        "rating": 1614.0284818793843,
-        "tier": {
-          "tier": "Diamond",
-          "division": "II",
-          "color": "#4cc9ff"
-        }
-      }
-    ],
-    "tier": {
-      "tier": "Diamond",
-      "division": "II",
-      "color": "#4cc9ff"
-    }
-  },
-  {
     "id": 5,
     "name": "Player_5",
-    "rating": 1471.542580287665,
+    "rating": 1464.1864224710532,
     "win_streak": 1,
-    "last_active": 1761138331.5610266,
+    "last_active": 1761138975.25532,
     "history": [
       {
-        "time": 1761138331.5599759,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -15.263693206478006,
-        "rating": 1484.736306793522,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600734,
-        "opponent_id": 1,
-        "result": 1.0,
-        "delta": 16.064713676468543,
-        "rating": 1500.8010204699906,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601153,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -15.93711905943654,
-        "rating": 1484.863901410554,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601757,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -14.263556656959189,
-        "rating": 1470.6003447535948,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5602732,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -15.968934219944472,
-        "rating": 1454.6314105336503,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5602858,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 18.28136456318444,
-        "rating": 1472.9127750968348,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5602963,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -14.34323869661331,
-        "rating": 1458.5695364002215,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560312,
-        "opponent_id": 6,
-        "result": 0.0,
-        "delta": -14.728913125523846,
-        "rating": 1443.8406232746977,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603685,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 18.606911147350278,
-        "rating": 1462.447534422048,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604422,
+        "time": 1761138975.254732,
         "opponent_id": 2,
         "result": 0.0,
-        "delta": -12.194062467599313,
-        "rating": 1450.2534719544487,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604603,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -13.55654495607396,
-        "rating": 1436.6969269983747,
-        "tier": {
-          "tier": "Platinum",
-          "division": "I",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604658,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 16.089858540423876,
-        "rating": 1452.7867855387985,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560478,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -11.259770520379401,
-        "rating": 1441.5270150184192,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605087,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 20.86431807825271,
-        "rating": 1462.3913330966718,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605628,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 14.17361815028497,
-        "rating": 1476.5649512469568,
+        "delta": -15.966091869830805,
+        "rating": 1484.0339081301693,
         "tier": {
           "tier": "Platinum",
           "division": "III",
@@ -1455,83 +699,11 @@
         }
       },
       {
-        "time": 1761138331.5606081,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 18.429752635082295,
-        "rating": 1494.994703882039,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606194,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -15.225389594682577,
-        "rating": 1479.7693142873563,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606856,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -15.653814486111314,
-        "rating": 1464.115499801245,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606947,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -14.219396860826123,
-        "rating": 1449.896102940419,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607176,
-        "opponent_id": 1,
-        "result": 1.0,
-        "delta": 20.7588637602058,
-        "rating": 1470.6549667006248,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607388,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -13.389761172152973,
-        "rating": 1457.2652055284718,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607562,
+        "time": 1761138975.2547429,
         "opponent_id": 3,
         "result": 0.0,
-        "delta": -12.495441008747502,
-        "rating": 1444.7697645197243,
+        "delta": -14.532046840062641,
+        "rating": 1469.5018612901067,
         "tier": {
           "tier": "Platinum",
           "division": "II",
@@ -1539,35 +711,11 @@
         }
       },
       {
-        "time": 1761138331.5608232,
-        "opponent_id": 7,
-        "result": 1.0,
-        "delta": 14.36931544643485,
-        "rating": 1459.1390799661592,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5608404,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 18.006107348423022,
-        "rating": 1477.1451873145822,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.561013,
+        "time": 1761138975.254775,
         "opponent_id": 7,
         "result": 0.0,
-        "delta": -22.02056184892905,
-        "rating": 1455.1246254656533,
+        "delta": -15.368131083658467,
+        "rating": 1454.1337302064483,
         "tier": {
           "tier": "Platinum",
           "division": "II",
@@ -1575,11 +723,71 @@
         }
       },
       {
-        "time": 1761138331.5610266,
+        "time": 1761138975.2549224,
         "opponent_id": 6,
         "result": 1.0,
-        "delta": 16.41795482201181,
-        "rating": 1471.542580287665,
+        "delta": 18.22344802811223,
+        "rating": 1472.3571782345605,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255153,
+        "opponent_id": 6,
+        "result": 0.0,
+        "delta": -17.278605769665603,
+        "rating": 1455.078572464895,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551625,
+        "opponent_id": 3,
+        "result": 1.0,
+        "delta": 18.60207518845779,
+        "rating": 1473.6806476533527,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551808,
+        "opponent_id": 4,
+        "result": 0.0,
+        "delta": -11.49751292110551,
+        "rating": 1462.1831347322473,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255287,
+        "opponent_id": 1,
+        "result": 0.0,
+        "delta": -17.002685700508245,
+        "rating": 1445.180449031739,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.25532,
+        "opponent_id": 8,
+        "result": 1.0,
+        "delta": 19.00597343931409,
+        "rating": 1464.1864224710532,
         "tier": {
           "tier": "Platinum",
           "division": "II",
@@ -1596,136 +804,28 @@
   {
     "id": 6,
     "name": "Player_6",
-    "rating": 1438.560380192176,
-    "win_streak": 0,
-    "last_active": 1761138331.5610356,
+    "rating": 1457.660171589936,
+    "win_streak": 1,
+    "last_active": 1761138975.2553525,
     "history": [
       {
-        "time": 1761138331.559911,
-        "opponent_id": 7,
-        "result": 0.0,
-        "delta": -16.0,
-        "rating": 1484.0,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560064,
-        "opponent_id": 8,
-        "result": 0.0,
-        "delta": -14.767340515473414,
-        "rating": 1469.2326594845265,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601373,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 16.75445100642655,
-        "rating": 1485.987110490953,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560144,
-        "opponent_id": 8,
-        "result": 1.0,
-        "delta": 18.523377710108228,
-        "rating": 1504.5104882010612,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560289,
-        "opponent_id": 5,
-        "result": 0.0,
-        "delta": -18.28136456318444,
-        "rating": 1486.2291236378767,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603085,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 14.728913125523846,
-        "rating": 1500.9580367634005,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603735,
-        "opponent_id": 5,
-        "result": 0.0,
-        "delta": -18.606911147350278,
-        "rating": 1482.3511256160502,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604963,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 19.95980189745668,
-        "rating": 1502.3109275135068,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605521,
+        "time": 1761138975.2548172,
         "opponent_id": 1,
-        "result": 0.0,
-        "delta": -16.312905254632035,
-        "rating": 1485.9980222588747,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560578,
-        "opponent_id": 2,
         "result": 1.0,
-        "delta": 18.923427018329566,
-        "rating": 1504.9214492772044,
+        "delta": 16.001558068196744,
+        "rating": 1516.0015580681968,
         "tier": {
           "tier": "Platinum",
-          "division": "III",
+          "division": "IV",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5605898,
-        "opponent_id": 7,
+        "time": 1761138975.2548387,
+        "opponent_id": 8,
         "result": 0.0,
-        "delta": -20.3346992346805,
-        "rating": 1484.5867500425238,
+        "delta": -15.968534563059222,
+        "rating": 1500.0330235051376,
         "tier": {
           "tier": "Platinum",
           "division": "III",
@@ -1733,11 +833,23 @@
         }
       },
       {
-        "time": 1761138331.5606542,
+        "time": 1761138975.2548482,
+        "opponent_id": 4,
+        "result": 0.0,
+        "delta": -16.00141533968616,
+        "rating": 1484.0316081654514,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.254894,
         "opponent_id": 3,
         "result": 1.0,
-        "delta": 18.344848686541855,
-        "rating": 1502.9315987290656,
+        "delta": 18.698129091266292,
+        "rating": 1502.7297372567177,
         "tier": {
           "tier": "Platinum",
           "division": "III",
@@ -1745,11 +857,11 @@
         }
       },
       {
-        "time": 1761138331.5608435,
+        "time": 1761138975.2549279,
         "opponent_id": 5,
         "result": 0.0,
-        "delta": -18.006107348423022,
-        "rating": 1484.9254913806426,
+        "delta": -18.22344802811223,
+        "rating": 1484.5062892286055,
         "tier": {
           "tier": "Platinum",
           "division": "III",
@@ -1757,59 +869,83 @@
         }
       },
       {
-        "time": 1761138331.5608523,
+        "time": 1761138975.2549427,
+        "opponent_id": 8,
+        "result": 0.0,
+        "delta": -13.79683077691875,
+        "rating": 1470.7094584516867,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2550051,
+        "opponent_id": 3,
+        "result": 0.0,
+        "delta": -14.221119142469252,
+        "rating": 1456.4883393092175,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551417,
         "opponent_id": 7,
-        "result": 1.0,
-        "delta": 11.521899907204944,
-        "rating": 1496.4473912878475,
+        "result": 0.0,
+        "delta": -11.955062207722243,
+        "rating": 1444.5332771014953,
         "tier": {
           "tier": "Platinum",
-          "division": "III",
+          "division": "II",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5608628,
-        "opponent_id": 7,
+        "time": 1761138975.2551477,
+        "opponent_id": 5,
         "result": 1.0,
-        "delta": 10.563027134206166,
-        "rating": 1507.0104184220536,
+        "delta": 17.278605769665603,
+        "rating": 1461.8118828711608,
         "tier": {
           "tier": "Platinum",
-          "division": "III",
+          "division": "II",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5608714,
+        "time": 1761138975.2551715,
         "opponent_id": 4,
         "result": 0.0,
-        "delta": -14.43515405033921,
-        "rating": 1492.5752643717144,
+        "delta": -11.481078276115909,
+        "rating": 1450.3308045950448,
         "tier": {
           "tier": "Platinum",
-          "division": "III",
+          "division": "II",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5609493,
+        "time": 1761138975.255187,
+        "opponent_id": 2,
+        "result": 1.0,
+        "delta": 16.872201756583543,
+        "rating": 1467.2030063516283,
+        "tier": {
+          "tier": "Platinum",
+          "division": "II",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2553315,
         "opponent_id": 1,
         "result": 0.0,
-        "delta": -14.731230293067458,
-        "rating": 1477.844034078647,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609777,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -13.641569783700405,
-        "rating": 1464.2024642949466,
+        "delta": -17.10347005153791,
+        "rating": 1450.0995363000904,
         "tier": {
           "tier": "Platinum",
           "division": "II",
@@ -1817,23 +953,23 @@
         }
       },
       {
-        "time": 1761138331.5610237,
-        "opponent_id": 5,
+        "time": 1761138975.25534,
+        "opponent_id": 1,
         "result": 0.0,
-        "delta": -16.41795482201181,
-        "rating": 1447.7845094729348,
+        "delta": -15.530071974505539,
+        "rating": 1434.569464325585,
         "tier": {
           "tier": "Platinum",
-          "division": "II",
+          "division": "I",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5610356,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -9.224129280758994,
-        "rating": 1438.560380192176,
+        "time": 1761138975.2553525,
+        "opponent_id": 7,
+        "result": 1.0,
+        "delta": 23.090707264351096,
+        "rating": 1457.660171589936,
         "tier": {
           "tier": "Platinum",
           "division": "II",
@@ -1850,28 +986,40 @@
   {
     "id": 7,
     "name": "Player_7",
-    "rating": 1361.676827252522,
-    "win_streak": 1,
-    "last_active": 1761138331.5610158,
+    "rating": 1576.9163596831477,
+    "win_streak": 0,
+    "last_active": 1761138975.2553494,
     "history": [
       {
-        "time": 1761138331.559903,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 16.0,
-        "rating": 1516.0,
+        "time": 1761138975.2547655,
+        "opponent_id": 1,
+        "result": 0.0,
+        "delta": -16.770139814642736,
+        "rating": 1483.2298601853572,
         "tier": {
           "tier": "Platinum",
-          "division": "IV",
+          "division": "III",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5600514,
+        "time": 1761138975.2547784,
+        "opponent_id": 5,
+        "result": 1.0,
+        "delta": 15.368131083658467,
+        "rating": 1498.5979912690157,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2549667,
         "opponent_id": 8,
         "result": 1.0,
-        "delta": 16.522139681239793,
-        "rating": 1532.5221396812399,
+        "delta": 18.862835203042437,
+        "rating": 1517.4608264720582,
         "tier": {
           "tier": "Platinum",
           "division": "IV",
@@ -1879,397 +1027,121 @@
         }
       },
       {
-        "time": 1761138331.560091,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 15.307436248793977,
-        "rating": 1547.8295759300338,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560109,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 13.784616784319729,
-        "rating": 1561.6141927143535,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5601573,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 13.301340836225574,
-        "rating": 1574.915533550579,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.5601666,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -19.871468593992855,
-        "rating": 1555.0440649565862,
-        "tier": {
-          "tier": "Diamond",
-          "division": "I",
-          "color": "#4cc9ff"
-        }
-      },
-      {
-        "time": 1761138331.560262,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -19.8889057751732,
-        "rating": 1535.155159181413,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603185,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -18.123877237719576,
-        "rating": 1517.0312819436933,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603373,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -16.557208850427653,
-        "rating": 1500.4740730932656,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5603797,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -14.349445685278452,
-        "rating": 1486.1246274079872,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604215,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -17.37219790005257,
-        "rating": 1468.7524295079347,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604327,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -15.775553248754846,
-        "rating": 1452.9768762591798,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560448,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -14.328675332534742,
-        "rating": 1438.6482009266451,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5604692,
-        "opponent_id": 5,
-        "result": 0.0,
-        "delta": -16.089858540423876,
-        "rating": 1422.5583423862213,
-        "tier": {
-          "tier": "Platinum",
-          "division": "I",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605686,
-        "opponent_id": 5,
-        "result": 0.0,
-        "delta": -14.17361815028497,
-        "rating": 1408.3847242359363,
-        "tier": {
-          "tier": "Platinum",
-          "division": "I",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5605848,
-        "opponent_id": 6,
-        "result": 1.0,
-        "delta": 20.3346992346805,
-        "rating": 1428.719423470617,
-        "tier": {
-          "tier": "Platinum",
-          "division": "I",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560632,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -11.40960992972673,
-        "rating": 1417.3098135408902,
-        "tier": {
-          "tier": "Platinum",
-          "division": "I",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606382,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -10.464413252621844,
-        "rating": 1406.8454002882684,
-        "tier": {
-          "tier": "Platinum",
-          "division": "I",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560705,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -9.634275761625524,
-        "rating": 1397.2111245266428,
-        "tier": {
-          "tier": "Gold",
-          "division": "IV",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5607266,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -10.685591072702461,
-        "rating": 1386.5255334539404,
-        "tier": {
-          "tier": "Gold",
-          "division": "IV",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5608077,
-        "opponent_id": 3,
-        "result": 1.0,
-        "delta": 22.710992548328168,
-        "rating": 1409.2365260022686,
-        "tier": {
-          "tier": "Platinum",
-          "division": "I",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560826,
-        "opponent_id": 5,
-        "result": 0.0,
-        "delta": -14.36931544643485,
-        "rating": 1394.8672105558337,
-        "tier": {
-          "tier": "Gold",
-          "division": "IV",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5608318,
+        "time": 1761138975.254991,
         "opponent_id": 1,
-        "result": 0.0,
-        "delta": -9.847944494100197,
-        "rating": 1385.0192660617336,
-        "tier": {
-          "tier": "Gold",
-          "division": "IV",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5608492,
-        "opponent_id": 6,
-        "result": 0.0,
-        "delta": -11.521899907204944,
-        "rating": 1373.4973661545287,
-        "tier": {
-          "tier": "Gold",
-          "division": "III",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5608578,
-        "opponent_id": 6,
-        "result": 0.0,
-        "delta": -10.563027134206166,
-        "rating": 1362.9343390203226,
-        "tier": {
-          "tier": "Gold",
-          "division": "III",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5608802,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -8.287971222901845,
-        "rating": 1354.6463677974207,
-        "tier": {
-          "tier": "Gold",
-          "division": "III",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5608857,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -7.583231468508213,
-        "rating": 1347.0631363289124,
-        "tier": {
-          "tier": "Gold",
-          "division": "II",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5609012,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -7.406870925319549,
-        "rating": 1339.656265403593,
-        "tier": {
-          "tier": "Gold",
-          "division": "II",
-          "color": "#ffd700"
-        }
-      },
-      {
-        "time": 1761138331.5610158,
-        "opponent_id": 5,
         "result": 1.0,
-        "delta": 22.02056184892905,
-        "rating": 1361.676827252522,
+        "delta": 13.842357611424584,
+        "rating": 1531.3031840834828,
         "tier": {
-          "tier": "Gold",
-          "division": "III",
-          "color": "#ffd700"
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2550366,
+        "opponent_id": 3,
+        "result": 1.0,
+        "delta": 14.966304225963363,
+        "rating": 1546.2694883094462,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551377,
+        "opponent_id": 6,
+        "result": 1.0,
+        "delta": 11.955062207722243,
+        "rating": 1558.2245505171684,
+        "tier": {
+          "tier": "Diamond",
+          "division": "I",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.2552104,
+        "opponent_id": 3,
+        "result": 1.0,
+        "delta": 13.052712478716987,
+        "rating": 1571.2772629958854,
+        "tier": {
+          "tier": "Diamond",
+          "division": "I",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.2552433,
+        "opponent_id": 4,
+        "result": 1.0,
+        "delta": 17.086500593342,
+        "rating": 1588.3637635892273,
+        "tier": {
+          "tier": "Diamond",
+          "division": "II",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.2552962,
+        "opponent_id": 3,
+        "result": 1.0,
+        "delta": 11.643303358271442,
+        "rating": 1600.0070669474987,
+        "tier": {
+          "tier": "Diamond",
+          "division": "II",
+          "color": "#4cc9ff"
+        }
+      },
+      {
+        "time": 1761138975.2553494,
+        "opponent_id": 6,
+        "result": 0.0,
+        "delta": -23.090707264351096,
+        "rating": 1576.9163596831477,
+        "tier": {
+          "tier": "Diamond",
+          "division": "I",
+          "color": "#4cc9ff"
         }
       }
     ],
     "tier": {
-      "tier": "Gold",
-      "division": "III",
-      "color": "#ffd700"
+      "tier": "Diamond",
+      "division": "I",
+      "color": "#4cc9ff"
     }
   },
   {
     "id": 8,
     "name": "Player_8",
-    "rating": 1472.279911056598,
+    "rating": 1492.233022731686,
     "win_streak": 0,
-    "last_active": 1761138331.5610044,
+    "last_active": 1761138975.2553232,
     "history": [
       {
-        "time": 1761138331.5599449,
-        "opponent_id": 4,
-        "result": 1.0,
-        "delta": 16.0,
-        "rating": 1516.0,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5599804,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 15.263693206478006,
-        "rating": 1531.263693206478,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5600102,
+        "time": 1761138975.2547193,
         "opponent_id": 3,
         "result": 0.0,
-        "delta": -18.257004655133265,
-        "rating": 1513.0066885513447,
+        "delta": -16.0,
+        "rating": 1484.0,
         "tier": {
           "tier": "Platinum",
-          "division": "IV",
+          "division": "III",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5600224,
+        "time": 1761138975.254788,
         "opponent_id": 2,
         "result": 1.0,
-        "delta": 15.301431674265011,
-        "rating": 1528.3081202256096,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560035,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -17.29245892504354,
-        "rating": 1511.015661300566,
+        "delta": 16.797825524012524,
+        "rating": 1500.7978255240125,
         "tier": {
           "tier": "Platinum",
           "division": "III",
@@ -2277,11 +1149,23 @@
         }
       },
       {
-        "time": 1761138331.5600417,
+        "time": 1761138975.2548006,
+        "opponent_id": 2,
+        "result": 1.0,
+        "delta": 15.251896727165834,
+        "rating": 1516.0497222511783,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2548103,
         "opponent_id": 4,
         "result": 1.0,
-        "delta": 16.32648527284629,
-        "rating": 1527.3421465734123,
+        "delta": 15.997710205728566,
+        "rating": 1532.0474324569068,
         "tier": {
           "tier": "Platinum",
           "division": "IV",
@@ -2289,23 +1173,23 @@
         }
       },
       {
-        "time": 1761138331.5600545,
-        "opponent_id": 7,
+        "time": 1761138975.2548282,
+        "opponent_id": 3,
         "result": 0.0,
-        "delta": -16.522139681239793,
-        "rating": 1510.8200068921724,
+        "delta": -15.362610226170489,
+        "rating": 1516.6848222307362,
         "tier": {
           "tier": "Platinum",
-          "division": "III",
+          "division": "IV",
           "color": "#2ee8c7"
         }
       },
       {
-        "time": 1761138331.5600607,
+        "time": 1761138975.254842,
         "opponent_id": 6,
         "result": 1.0,
-        "delta": 14.767340515473414,
-        "rating": 1525.587347407646,
+        "delta": 15.968534563059222,
+        "rating": 1532.6533567937954,
         "tier": {
           "tier": "Platinum",
           "division": "IV",
@@ -2313,47 +1197,23 @@
         }
       },
       {
-        "time": 1761138331.5601277,
+        "time": 1761138975.2549376,
+        "opponent_id": 6,
+        "result": 1.0,
+        "delta": 13.79683077691875,
+        "rating": 1546.4501875707142,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2549567,
         "opponent_id": 3,
         "result": 1.0,
-        "delta": 15.655413472485305,
-        "rating": 1541.2427608801313,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560147,
-        "opponent_id": 6,
-        "result": 0.0,
-        "delta": -18.523377710108228,
-        "rating": 1522.719383170023,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5601785,
-        "opponent_id": 5,
-        "result": 1.0,
-        "delta": 14.263556656959189,
-        "rating": 1536.9829398269824,
-        "tier": {
-          "tier": "Platinum",
-          "division": "IV",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560252,
-        "opponent_id": 4,
-        "result": 1.0,
-        "delta": 13.619026250722344,
-        "rating": 1550.6019660777047,
+        "delta": 14.989932748645856,
+        "rating": 1561.4401203193602,
         "tier": {
           "tier": "Diamond",
           "division": "I",
@@ -2361,11 +1221,11 @@
         }
       },
       {
-        "time": 1761138331.5605054,
-        "opponent_id": 5,
+        "time": 1761138975.254972,
+        "opponent_id": 7,
         "result": 0.0,
-        "delta": -20.86431807825271,
-        "rating": 1529.737647999452,
+        "delta": -18.862835203042437,
+        "rating": 1542.5772851163179,
         "tier": {
           "tier": "Platinum",
           "division": "IV",
@@ -2373,151 +1233,78 @@
         }
       },
       {
-        "time": 1761138331.5606122,
+        "time": 1761138975.2551174,
+        "opponent_id": 3,
+        "result": 0.0,
+        "delta": -18.228963220156505,
+        "rating": 1524.3483218961615,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2551312,
+        "opponent_id": 1,
+        "result": 1.0,
+        "delta": 12.913647265366814,
+        "rating": 1537.2619691615282,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.255196,
+        "opponent_id": 2,
+        "result": 0.0,
+        "delta": -19.831393412469335,
+        "rating": 1517.4305757490588,
+        "tier": {
+          "tier": "Platinum",
+          "division": "IV",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2552705,
+        "opponent_id": 1,
+        "result": 0.0,
+        "delta": -20.372427147191466,
+        "rating": 1497.0581486018673,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2553144,
+        "opponent_id": 1,
+        "result": 1.0,
+        "delta": 14.180847569132986,
+        "rating": 1511.2389961710003,
+        "tier": {
+          "tier": "Platinum",
+          "division": "III",
+          "color": "#2ee8c7"
+        }
+      },
+      {
+        "time": 1761138975.2553232,
         "opponent_id": 5,
         "result": 0.0,
-        "delta": -18.429752635082295,
-        "rating": 1511.3078953643699,
+        "delta": -19.00597343931409,
+        "rating": 1492.233022731686,
         "tier": {
           "tier": "Platinum",
           "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5606604,
-        "opponent_id": 1,
-        "result": 0.0,
-        "delta": -15.275374721634986,
-        "rating": 1496.0325206427349,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607622,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -13.664394555961156,
-        "rating": 1482.3681260867738,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5607967,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -13.914288391328451,
-        "rating": 1468.4538376954454,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560817,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 20.912920070575897,
-        "rating": 1489.3667577660212,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609097,
-        "opponent_id": 1,
-        "result": 1.0,
-        "delta": 18.935061674426255,
-        "rating": 1508.3018194404474,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609157,
-        "opponent_id": 3,
-        "result": 0.0,
-        "delta": -15.501907241063345,
-        "rating": 1492.7999121993842,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.560955,
-        "opponent_id": 2,
-        "result": 1.0,
-        "delta": 18.51869107795211,
-        "rating": 1511.3186032773363,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609899,
-        "opponent_id": 4,
-        "result": 0.0,
-        "delta": -12.32912248365426,
-        "rating": 1498.989480793682,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5609956,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -13.980654636342248,
-        "rating": 1485.0088261573399,
-        "tier": {
-          "tier": "Platinum",
-          "division": "III",
-          "color": "#2ee8c7"
-        }
-      },
-      {
-        "time": 1761138331.5610044,
-        "opponent_id": 2,
-        "result": 0.0,
-        "delta": -12.728915100741839,
-        "rating": 1472.279911056598,
-        "tier": {
-          "tier": "Platinum",
-          "division": "II",
           "color": "#2ee8c7"
         }
       }
     ],
-    "tier": {
-      "tier": "Platinum",
-      "division": "II",
-      "color": "#2ee8c7"
-    }
-  },
-  {
-    "id": 9,
-    "name": "SuperPlayer",
-    "rating": 1500.0,
-    "win_streak": 0,
-    "last_active": 1761138679.641393,
-    "history": [],
     "tier": {
       "tier": "Platinum",
       "division": "III",

@@ -2,87 +2,925 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rank/ELO Simulator</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
   <style>
-    body { font-family: Inter, Roboto, Arial, sans-serif; max-width:1100px; margin: 20px auto; color:#222;}
-    .controls { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:12px; }
-    input, button, select { padding:6px 10px; border-radius:6px; border:1px solid #ddd; }
-    .card { padding:12px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06); background:#fff;}
-    #log { height:300px; overflow:auto; border:1px solid #eee; padding:8px; white-space:pre-wrap; background:#fafafa; border-radius:6px; }
-    .top-list { margin-top:10px; display:flex; flex-direction:column; gap:6px; }
-    .player-row { display:flex; justify-content:space-between; padding:8px; border-radius:6px; align-items:center; }
-    .player-left { display:flex; gap:8px; align-items:center; }
-    .badge { padding:6px 10px; border-radius:999px; color:#fff; font-weight:700; }
-    .controls .label { font-size:13px; color:#666; margin-right:6px; }
+    :root {
+      --bg-primary: #0f1419;
+      --bg-secondary: #1a1f2e;
+      --bg-card: #242b3d;
+      --bg-hover: #2d3548;
+      --text-primary: #e1e8ed;
+      --text-secondary: #8899a6;
+      --border-color: #38444d;
+      --accent-primary: #1d9bf0;
+      --accent-hover: #1a8cd8;
+      --success: #00ba7c;
+      --warning: #ffd700;
+      --danger: #f4212e;
+    }
+    
+    body.light-mode {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f7f9fa;
+      --bg-card: #ffffff;
+      --bg-hover: #f7f9fa;
+      --text-primary: #0f1419;
+      --text-secondary: #536471;
+      --border-color: #eff3f4;
+      --accent-primary: #1d9bf0;
+      --accent-hover: #1a8cd8;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    h1 { 
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-primary) 0%, #7856ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    
+    .theme-toggle:hover {
+      background: var(--bg-hover);
+      transform: translateY(-1px);
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 2px;
+    }
+    
+    .tab {
+      background: none;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    
+    .tab:hover {
+      color: var(--text-primary);
+    }
+    
+    .tab.active {
+      color: var(--accent-primary);
+      border-bottom-color: var(--accent-primary);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .controls-section {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+    
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .control-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    input[type="text"], input[type="number"], select {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(29, 155, 240, 0.1);
+    }
+    
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--accent-primary);
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    button {
+      background: var(--accent-primary);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    button:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(29, 155, 240, 0.3);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    button.secondary {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+    
+    button.secondary:hover {
+      background: var(--bg-hover);
+      box-shadow: none;
+    }
+    
+    button.danger {
+      background: var(--danger);
+    }
+    
+    button.success {
+      background: var(--success);
+    }
+    
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    @media (max-width: 900px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      color: var(--text-primary);
+    }
+    
+    .top-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .player-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+    
+    .player-row:hover {
+      background: var(--bg-hover);
+      transform: translateX(4px);
+    }
+    
+    .player-left {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .rank-number {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 6px;
+      background: var(--bg-hover);
+      color: var(--text-secondary);
+    }
+    
+    .rank-number.top3 {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      color: #000;
+    }
+    
+    .badge {
+      padding: 6px 12px;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .player-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    
+    .player-rating {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+    
+    #log {
+      height: 300px;
+      overflow: auto;
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      white-space: pre-wrap;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    
+    #log::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    #log::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+    
+    #log::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .stat-card {
+      background: var(--bg-secondary);
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+    
+    .chart-container {
+      position: relative;
+      height: 300px;
+      margin-top: 16px;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-secondary);
+    }
+    
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal.active {
+      display: flex;
+    }
+    
+    .modal-content {
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      border: 1px solid var(--border-color);
+    }
+    
+    .modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      justify-content: flex-end;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-secondary);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-primary), var(--success));
+      transition: width 0.3s;
+      width: 0%;
+    }
   </style>
 </head>
 <body>
-  <h1>Rank/ELO Simulator</h1>
-  <div class="card">
-    <div class="controls">
-      <button id="init">Init players</button>
-      <label class="label">Matches <input id="matches" type="number" value="100" min="1" style="width:90px"/></label>
-      <label class="label">Seed <input id="seed" type="text" placeholder="optional" style="width:90px"/></label>
-      <label class="label">K <input id="k" type="number" value="32" step="0.1" style="width:80px"/></label>
-      <label><input id="arcade" type="checkbox" /> Arcade</label>
-      <label class="label">Streak % <input id="streak" type="number" value="0" step="0.01" style="width:80px"/></label>
-      <label class="label">Decay/day <input id="decay" type="number" value="0" step="0.1" style="width:80px"/></label>
-      <button id="run">Run</button>
-      <button id="top">Show top</button>
+  <div class="header">
+    <h1>⚔️ Rank/ELO Simulator</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('simulator')">Simulator</button>
+    <button class="tab" onclick="switchTab('players')">Players</button>
+    <button class="tab" onclick="switchTab('analytics')">Analytics</button>
+  </div>
+
+  <!-- Simulator Tab -->
+  <div id="simulator-tab" class="tab-content active">
+    <div class="controls-section">
+      <h3 class="card-title">Simulation Settings</h3>
+      <div class="controls-grid">
+        <div class="control-group">
+          <label class="control-label">Matches</label>
+          <input id="matches" type="number" value="100" min="1" max="10000"/>
+        </div>
+        <div class="control-group">
+          <label class="control-label">K-Factor</label>
+          <input id="k" type="number" value="32" step="0.1" min="1" max="100"/>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Random Seed</label>
+          <input id="seed" type="text" placeholder="Optional"/>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Streak Bonus %</label>
+          <input id="streak" type="number" value="0" step="0.01" min="0" max="1"/>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Decay/Day</label>
+          <input id="decay" type="number" value="0" step="0.1" min="0"/>
+        </div>
+        <div class="control-group">
+          <div class="checkbox-group">
+            <input id="arcade" type="checkbox"/>
+            <label class="control-label" style="margin: 0;">Arcade Mode</label>
+          </div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button id="run" class="success">▶️ Run Simulation</button>
+        <button id="init" class="secondary">🔄 Initialize Players</button>
+        <button id="reset" class="danger">🗑️ Reset Data</button>
+        <button id="export" class="secondary">💾 Export Results</button>
+      </div>
+      <div id="progress-container" style="display: none;">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
     </div>
 
-    <div style="display:flex; gap:12px;">
-      <div style="flex:1">
-        <h3>Top players</h3>
+    <div class="content-grid">
+      <div class="card">
+        <h3 class="card-title">🏆 Top Players</h3>
         <div id="top" class="top-list"></div>
       </div>
-      <div style="width:420px">
-        <h3>Log</h3>
-        <div id="log">Ready.</div>
+      <div class="card">
+        <h3 class="card-title">📋 Activity Log</h3>
+        <div id="log">Ready to simulate matches...</div>
       </div>
     </div>
   </div>
 
-<script>
-function log(msg){ const e=document.getElementById('log'); e.textContent += '\n'+msg; e.scrollTop=e.scrollHeight; }
+  <!-- Players Tab -->
+  <div id="players-tab" class="tab-content">
+    <div class="controls-section">
+      <h3 class="card-title">Player Management</h3>
+      <div class="button-group">
+        <button id="add-player" class="success">➕ Add Player</button>
+        <button id="load-players" class="secondary">📂 Load Players</button>
+      </div>
+    </div>
+    <div id="players-list" class="card">
+      <h3 class="card-title">All Players</h3>
+      <div id="players-content"></div>
+    </div>
+  </div>
 
-function renderTop(list){
-  const container = document.getElementById('top');
-  container.innerHTML = '';
-  list.forEach((p, i) => {
-    const row = document.createElement('div');
-    row.className = 'player-row';
-    row.style.background = 'linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.0))';
-    const left = document.createElement('div'); left.className='player-left';
-    const badge = document.createElement('div'); badge.className='badge'; badge.textContent = `${p.tier.tier} ${p.tier.division}`;
-    badge.style.background = p.tier.color || '#888';
-    const name = document.createElement('div'); name.textContent = `${p.name}`;
-    left.appendChild(badge); left.appendChild(name);
-    const right = document.createElement('div'); right.textContent = `${p.rating.toFixed(1)}`;
-    row.appendChild(left); row.appendChild(right);
-    container.appendChild(row);
-  });
-}
+  <!-- Analytics Tab -->
+  <div id="analytics-tab" class="tab-content">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total-players">-</div>
+        <div class="stat-label">Total Players</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-avg-rating">-</div>
+        <div class="stat-label">Avg Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-highest">-</div>
+        <div class="stat-label">Highest Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total-matches">-</div>
+        <div class="stat-label">Total Matches</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="card-title">📊 Rating Distribution</h3>
+      <div class="chart-container">
+        <canvas id="ratingChart"></canvas>
+      </div>
+    </div>
+  </div>
 
-document.getElementById('init').onclick = async () => {
-  const res = await fetch('/api/init', {method:'POST'}); const j=await res.json(); log(JSON.stringify(j)); alert(j.message || JSON.stringify(j));
-};
-document.getElementById('run').onclick = async () => {
-  const payload = {
-    matches: parseInt(document.getElementById('matches').value),
-    seed: document.getElementById('seed').value,
-    k: parseFloat(document.getElementById('k').value),
-    arcade: document.getElementById('arcade').checked,
-    streak: parseFloat(document.getElementById('streak').value),
-    decay: parseFloat(document.getElementById('decay').value)
-  };
-  log('Starting simulation...');
-  const res = await fetch('/api/run', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
-  const j = await res.json(); log(JSON.stringify(j)); if (j.top) renderTop(j.top);
-};
-document.getElementById('top').onclick = async () => {
-  const res = await fetch('/api/top'); const j = await res.json(); log(JSON.stringify(j)); if (j.top) renderTop(j.top);
-};
-</script>
+  <!-- Add Player Modal -->
+  <div id="add-player-modal" class="modal">
+    <div class="modal-content">
+      <h3 class="modal-title">Add New Player</h3>
+      <div class="control-group">
+        <label class="control-label">Player Name</label>
+        <input id="new-player-name" type="text" placeholder="Enter player name"/>
+      </div>
+      <div class="control-group" style="margin-top: 16px;">
+        <label class="control-label">Starting Rating</label>
+        <input id="new-player-rating" type="number" value="1500" min="100" max="3000"/>
+      </div>
+      <div class="modal-buttons">
+        <button class="secondary" onclick="closeModal('add-player-modal')">Cancel</button>
+        <button class="success" id="confirm-add-player">Add Player</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentPlayers = [];
+    let ratingChart = null;
+
+    // Theme toggle
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-mode');
+    }
+
+    // Tab switching
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+      
+      if (tabName === 'analytics') {
+        loadAnalytics();
+      } else if (tabName === 'players') {
+        loadPlayersList();
+      }
+    }
+
+    // Logging
+    function log(msg, type = 'info') {
+      const e = document.getElementById('log');
+      const timestamp = new Date().toLocaleTimeString();
+      const prefix = type === 'error' ? '❌' : type === 'success' ? '✅' : 'ℹ️';
+      e.textContent += `\n[${timestamp}] ${prefix} ${msg}`;
+      e.scrollTop = e.scrollHeight;
+    }
+
+    // Render top players
+    function renderTop(list) {
+      currentPlayers = list;
+      const container = document.getElementById('top');
+      
+      if (!list || list.length === 0) {
+        container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🎮</div><div>No players yet. Initialize players to get started!</div></div>';
+        return;
+      }
+      
+      container.innerHTML = '';
+      list.slice(0, 10).forEach((p, i) => {
+        const row = document.createElement('div');
+        row.className = 'player-row';
+        
+        const left = document.createElement('div');
+        left.className = 'player-left';
+        
+        const rankNum = document.createElement('div');
+        rankNum.className = 'rank-number' + (i < 3 ? ' top3' : '');
+        rankNum.textContent = i + 1;
+        
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        badge.textContent = `${p.tier.tier} ${p.tier.division}`;
+        badge.style.background = p.tier.color || '#888';
+        
+        const name = document.createElement('div');
+        name.className = 'player-name';
+        name.textContent = p.name;
+        
+        left.appendChild(rankNum);
+        left.appendChild(badge);
+        left.appendChild(name);
+        
+        const right = document.createElement('div');
+        right.className = 'player-rating';
+        right.textContent = p.rating.toFixed(0);
+        
+        row.appendChild(left);
+        row.appendChild(right);
+        container.appendChild(row);
+      });
+    }
+
+    // Modal functions
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    // Load players list
+    async function loadPlayersList() {
+      try {
+        const res = await fetch('/api/players');
+        const j = await res.json();
+        if (j.status === 'ok') {
+          renderPlayersList(j.players);
+        }
+      } catch (e) {
+        log('Failed to load players: ' + e.message, 'error');
+      }
+    }
+
+    function renderPlayersList(players) {
+      const container = document.getElementById('players-content');
+      if (!players || players.length === 0) {
+        container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">👥</div><div>No players found</div></div>';
+        return;
+      }
+      
+      container.innerHTML = '';
+      const list = document.createElement('div');
+      list.className = 'top-list';
+      
+      players.forEach((p, i) => {
+        const row = document.createElement('div');
+        row.className = 'player-row';
+        
+        const left = document.createElement('div');
+        left.className = 'player-left';
+        
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        badge.textContent = `${p.tier.tier} ${p.tier.division}`;
+        badge.style.background = p.tier.color || '#888';
+        
+        const info = document.createElement('div');
+        const name = document.createElement('div');
+        name.className = 'player-name';
+        name.textContent = p.name;
+        const stats = document.createElement('div');
+        stats.style.fontSize = '12px';
+        stats.style.color = 'var(--text-secondary)';
+        stats.textContent = `Streak: ${p.win_streak || 0} | Matches: ${p.history?.length || 0}`;
+        info.appendChild(name);
+        info.appendChild(stats);
+        
+        left.appendChild(badge);
+        left.appendChild(info);
+        
+        const right = document.createElement('div');
+        right.className = 'player-rating';
+        right.textContent = p.rating.toFixed(0);
+        
+        row.appendChild(left);
+        row.appendChild(right);
+        list.appendChild(row);
+      });
+      
+      container.appendChild(list);
+    }
+
+    // Load analytics
+    async function loadAnalytics() {
+      try {
+        const res = await fetch('/api/analytics');
+        const j = await res.json();
+        if (j.status === 'ok') {
+          updateAnalytics(j.data);
+        }
+      } catch (e) {
+        log('Failed to load analytics: ' + e.message, 'error');
+      }
+    }
+
+    function updateAnalytics(data) {
+      document.getElementById('stat-total-players').textContent = data.total_players;
+      document.getElementById('stat-avg-rating').textContent = data.avg_rating.toFixed(0);
+      document.getElementById('stat-highest').textContent = data.highest_rating.toFixed(0);
+      document.getElementById('stat-total-matches').textContent = data.total_matches;
+      
+      // Update chart
+      updateRatingChart(data.rating_distribution);
+    }
+
+    function updateRatingChart(distribution) {
+      const ctx = document.getElementById('ratingChart');
+      
+      if (ratingChart) {
+        ratingChart.destroy();
+      }
+      
+      const isDark = !document.body.classList.contains('light-mode');
+      
+      ratingChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: distribution.labels,
+          datasets: [{
+            label: 'Players',
+            data: distribution.counts,
+            backgroundColor: 'rgba(29, 155, 240, 0.5)',
+            borderColor: 'rgba(29, 155, 240, 1)',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                color: isDark ? '#8899a6' : '#536471'
+              },
+              grid: {
+                color: isDark ? '#38444d' : '#eff3f4'
+              }
+            },
+            x: {
+              ticks: {
+                color: isDark ? '#8899a6' : '#536471'
+              },
+              grid: {
+                color: isDark ? '#38444d' : '#eff3f4'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Event handlers
+    document.getElementById('init').onclick = async () => {
+      log('Initializing players...');
+      const res = await fetch('/api/init', {method:'POST'});
+      const j = await res.json();
+      if (j.status === 'ok') {
+        log(j.message, 'success');
+        await loadTop();
+      } else {
+        log(j.message, 'error');
+      }
+    };
+
+    document.getElementById('run').onclick = async () => {
+      const payload = {
+        matches: parseInt(document.getElementById('matches').value),
+        seed: document.getElementById('seed').value,
+        k: parseFloat(document.getElementById('k').value),
+        arcade: document.getElementById('arcade').checked,
+        streak: parseFloat(document.getElementById('streak').value),
+        decay: parseFloat(document.getElementById('decay').value)
+      };
+      
+      log(`Starting simulation: ${payload.matches} matches...`);
+      document.getElementById('progress-container').style.display = 'block';
+      document.getElementById('progress-fill').style.width = '50%';
+      
+      const res = await fetch('/api/run', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      });
+      const j = await res.json();
+      
+      document.getElementById('progress-fill').style.width = '100%';
+      setTimeout(() => {
+        document.getElementById('progress-container').style.display = 'none';
+        document.getElementById('progress-fill').style.width = '0%';
+      }, 1000);
+      
+      if (j.status === 'ok') {
+        log(`Simulation complete! ${j.matches} matches played.`, 'success');
+        if (j.top) renderTop(j.top);
+      } else {
+        log(j.message, 'error');
+      }
+    };
+
+    document.getElementById('reset').onclick = async () => {
+      if (!confirm('Are you sure you want to reset all player data?')) return;
+      log('Resetting all data...');
+      const res = await fetch('/api/reset', {method:'POST'});
+      const j = await res.json();
+      if (j.status === 'ok') {
+        log('Data reset successfully', 'success');
+        renderTop([]);
+      } else {
+        log(j.message, 'error');
+      }
+    };
+
+    document.getElementById('export').onclick = async () => {
+      log('Exporting data...');
+      const res = await fetch('/api/export');
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `elo-simulation-${Date.now()}.json`;
+      a.click();
+      log('Data exported successfully', 'success');
+    };
+
+    document.getElementById('add-player').onclick = () => {
+      openModal('add-player-modal');
+    };
+
+    document.getElementById('confirm-add-player').onclick = async () => {
+      const name = document.getElementById('new-player-name').value;
+      const rating = parseFloat(document.getElementById('new-player-rating').value);
+      
+      if (!name) {
+        alert('Please enter a player name');
+        return;
+      }
+      
+      const res = await fetch('/api/players', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name, rating})
+      });
+      const j = await res.json();
+      
+      if (j.status === 'ok') {
+        log(`Added player: ${name}`, 'success');
+        closeModal('add-player-modal');
+        document.getElementById('new-player-name').value = '';
+        document.getElementById('new-player-rating').value = '1500';
+        loadPlayersList();
+      } else {
+        log(j.message, 'error');
+      }
+    };
+
+    document.getElementById('load-players').onclick = loadPlayersList;
+
+    async function loadTop() {
+      const res = await fetch('/api/top');
+      const j = await res.json();
+      if (j.status === 'ok' && j.top) {
+        renderTop(j.top);
+      }
+    }
+
+    // Load initial data
+    loadTop();
+  </script>
 </body>
 </html>

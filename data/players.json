@@ -2510,5 +2510,18 @@
       "division": "II",
       "color": "#2ee8c7"
     }
+  },
+  {
+    "id": 9,
+    "name": "SuperPlayer",
+    "rating": 1500.0,
+    "win_streak": 0,
+    "last_active": 1761138679.641393,
+    "history": [],
+    "tier": {
+      "tier": "Platinum",
+      "division": "III",
+      "color": "#2ee8c7"
+    }
   }
 ]

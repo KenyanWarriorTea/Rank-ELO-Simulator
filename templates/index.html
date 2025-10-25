@@ -1,87 +1,231 @@
 <!doctype html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="utf-8"/>
-  <title>Rank/ELO Simulator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Rank / ELO Simulator</title>
   <style>
-    body { font-family: Inter, Roboto, Arial, sans-serif; max-width:1100px; margin: 20px auto; color:#222;}
-    .controls { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:12px; }
-    input, button, select { padding:6px 10px; border-radius:6px; border:1px solid #ddd; }
-    .card { padding:12px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06); background:#fff;}
-    #log { height:300px; overflow:auto; border:1px solid #eee; padding:8px; white-space:pre-wrap; background:#fafafa; border-radius:6px; }
-    .top-list { margin-top:10px; display:flex; flex-direction:column; gap:6px; }
-    .player-row { display:flex; justify-content:space-between; padding:8px; border-radius:6px; align-items:center; }
-    .player-left { display:flex; gap:8px; align-items:center; }
-    .badge { padding:6px 10px; border-radius:999px; color:#fff; font-weight:700; }
-    .controls .label { font-size:13px; color:#666; margin-right:6px; }
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --success:#16a34a;
+      --danger:#dc2626;
+      --radius:10px;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);
+      font-family: Inter, Roboto, Arial, sans-serif;color:#111}
+    .container{max-width:1100px;margin:28px auto;padding:18px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    h1{font-size:20px;margin:0}
+    .sub{color:var(--muted);font-size:13px}
+    .layout{display:grid;grid-template-columns:360px 1fr;gap:18px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .controls{display:flex;flex-direction:column;gap:10px}
+    .controls-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    label.inline{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+    input[type="number"],input[type="text"],select{
+      padding:8px 10px;border-radius:8px;border:1px solid #e6e9ef;
+      background:#fff
+    }
+    button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;
+      cursor:pointer;font-weight:600}
+    button.secondary{background:#eef2ff;color:var(--accent);border:1px solid #dbeafe}
+    button[disabled]{opacity:0.6;cursor:not-allowed}
+    .small{font-size:13px;color:var(--muted)}
+    #log{height:360px;overflow:auto;border-radius:8px;padding:12px;background:#fbfdff;
+      border:1px solid #eef2f6;white-space:pre-wrap;font-family:monospace;font-size:13px}
+    .top-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .player-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;
+      background:linear-gradient(90deg,#fff,#fbfdff);border:1px solid #f1f5f9}
+    .player-left{display:flex;align-items:center;gap:10px}
+    .badge{padding:6px 10px;border-radius:999px;color:#fff;font-weight:700;font-size:13px}
+    .tier-name{font-weight:700}
+    .meta{color:var(--muted);font-size:13px}
+    .controls .note{font-size:12px;color:var(--muted);margin-top:6px}
+    .row{display:flex;gap:8px;align-items:center}
+    .spinner{display:inline-block;width:18px;height:18px;border-radius:50%;border:3px solid rgba(0,0,0,0.08);
+      border-top-color:var(--accent);animation:spin 1s linear infinite;vertical-align:middle}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:880px){.layout{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <h1>Rank/ELO Simulator</h1>
-  <div class="card">
-    <div class="controls">
-      <button id="init">Init players</button>
-      <label class="label">Matches <input id="matches" type="number" value="100" min="1" style="width:90px"/></label>
-      <label class="label">Seed <input id="seed" type="text" placeholder="optional" style="width:90px"/></label>
-      <label class="label">K <input id="k" type="number" value="32" step="0.1" style="width:80px"/></label>
-      <label><input id="arcade" type="checkbox" /> Arcade</label>
-      <label class="label">Streak % <input id="streak" type="number" value="0" step="0.01" style="width:80px"/></label>
-      <label class="label">Decay/day <input id="decay" type="number" value="0" step="0.1" style="width:80px"/></label>
-      <button id="run">Run</button>
-      <button id="top">Show top</button>
-    </div>
-
-    <div style="display:flex; gap:12px;">
-      <div style="flex:1">
-        <h3>Top players</h3>
-        <div id="top" class="top-list"></div>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Rank / ELO Simulator</h1>
+        <div class="sub">Лёгкий движок для симуляции рейтинговых систем — готов к локальному запуску</div>
       </div>
-      <div style="width:420px">
-        <h3>Log</h3>
-        <div id="log">Ready.</div>
+      <div class="small">Players data: data/players.json</div>
+    </header>
+
+    <div class="layout">
+      <div class="card">
+        <div class="controls">
+          <div class="controls-row">
+            <button id="initBtn" class="secondary">Init players</button>
+            <button id="runBtn">Run</button>
+            <button id="showTopBtn" class="secondary">Show top</button>
+          </div>
+
+          <div class="controls-row">
+            <label class="inline">Matches
+              <input id="matches" type="number" value="100" min="1" style="width:120px"/></label>
+
+            <label class="inline">Seed
+              <input id="seed" type="text" placeholder="optional" style="width:120px"/></label>
+          </div>
+
+          <div class="controls-row">
+            <label class="inline">K
+              <input id="k" type="number" value="32" step="0.1" style="width:120px"/></label>
+
+            <label class="inline"><input id="arcade" type="checkbox" /> Arcade</label>
+          </div>
+
+          <div class="controls-row">
+            <label class="inline">Streak %
+              <input id="streak" type="number" value="0" step="0.01" style="width:120px"/></label>
+
+            <label class="inline">Decay/day
+              <input id="decay" type="number" value="0" step="0.1" style="width:120px"/></label>
+          </div>
+
+          <div class="note small">Нажмите Init players для создания sample игроков (если их нет в data/).</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <h3 style="margin:0">Top players</h3>
+              <div class="small">Топ по рейтингу (после последней симуляции)</div>
+            </div>
+            <div id="busyIndicator" style="display:none" class="row"><div class="spinner"></div><div class="small" style="margin-left:8px">Working...</div></div>
+          </div>
+
+          <div id="topList" class="top-list" aria-live="polite"></div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">Log</h3>
+          <div id="log">Ready.</div>
+        </div>
       </div>
     </div>
   </div>
 
 <script>
-function log(msg){ const e=document.getElementById('log'); e.textContent += '\n'+msg; e.scrollTop=e.scrollHeight; }
+/* Небольшие утилиты и безопасные запросы */
+function log(msg){
+  const e = document.getElementById('log');
+  const ts = new Date().toISOString().replace('T',' ').split('.')[0];
+  e.textContent += `\n[${ts}] ${msg}`;
+  e.scrollTop = e.scrollHeight;
+}
 
+function setBusy(on){
+  document.getElementById('busyIndicator').style.display = on ? 'flex' : 'none';
+  document.getElementById('runBtn').disabled = on;
+  document.getElementById('initBtn').disabled = on;
+  document.getElementById('showTopBtn').disabled = on;
+}
+
+/* Визуализация топа */
 function renderTop(list){
-  const container = document.getElementById('top');
+  const container = document.getElementById('topList');
   container.innerHTML = '';
+  if(!list || list.length === 0){
+    container.textContent = 'No players to show';
+    return;
+  }
   list.forEach((p, i) => {
     const row = document.createElement('div');
     row.className = 'player-row';
-    row.style.background = 'linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.0))';
     const left = document.createElement('div'); left.className='player-left';
-    const badge = document.createElement('div'); badge.className='badge'; badge.textContent = `${p.tier.tier} ${p.tier.division}`;
-    badge.style.background = p.tier.color || '#888';
-    const name = document.createElement('div'); name.textContent = `${p.name}`;
-    left.appendChild(badge); left.appendChild(name);
-    const right = document.createElement('div'); right.textContent = `${p.rating.toFixed(1)}`;
+    const badge = document.createElement('div'); badge.className='badge';
+    const tier = (p.tier && p.tier.tier) ? p.tier.tier : 'T';
+    const divs = (p.tier && p.tier.division) ? p.tier.division : '';
+    badge.textContent = `${tier} ${divs}`;
+    badge.style.background = (p.tier && p.tier.color) ? p.tier.color : '#888';
+    const nameWrap = document.createElement('div');
+    const name = document.createElement('div'); name.className = 'tier-name'; name.textContent = p.name || `Player ${p.id}`;
+    const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = `#${p.id}`;
+    nameWrap.appendChild(name); nameWrap.appendChild(meta);
+    left.appendChild(badge); left.appendChild(nameWrap);
+    const right = document.createElement('div'); right.style.textAlign='right';
+    const rating = document.createElement('div'); rating.textContent = (p.rating || 0).toFixed(1);
+    const sub = document.createElement('div'); sub.className='meta'; sub.textContent = p.wins ? `W:${p.wins}` : '';
+    right.appendChild(rating); right.appendChild(sub);
     row.appendChild(left); row.appendChild(right);
     container.appendChild(row);
   });
 }
 
-document.getElementById('init').onclick = async () => {
-  const res = await fetch('/api/init', {method:'POST'}); const j=await res.json(); log(JSON.stringify(j)); alert(j.message || JSON.stringify(j));
+/* Валидация и чтение полей */
+function readParams(){
+  const matches = parseInt(document.getElementById('matches').value, 10) || 100;
+  const seedVal = document.getElementById('seed').value.trim();
+  const seed = seedVal === '' ? null : (isNaN(Number(seedVal)) ? seedVal : Number(seedVal));
+  const k = parseFloat(document.getElementById('k').value) || 32;
+  const arcade = document.getElementById('arcade').checked;
+  const streak = parseFloat(document.getElementById('streak').value) || 0;
+  const decay = parseFloat(document.getElementById('decay').value) || 0;
+  return {matches, seed, k, arcade, streak, decay};
+}
+
+/* Handlers */
+document.getElementById('initBtn').onclick = async () => {
+  setBusy(true);
+  try {
+    const res = await fetch('/api/init', {method:'POST'});
+    const j = await res.json();
+    if(res.ok){ log('Players initialized.'); }
+    else { log('Init failed: ' + (j.message || JSON.stringify(j))); }
+  } catch (err){
+    log('Init error: ' + err);
+  } finally { setBusy(false); }
 };
-document.getElementById('run').onclick = async () => {
-  const payload = {
-    matches: parseInt(document.getElementById('matches').value),
-    seed: document.getElementById('seed').value,
-    k: parseFloat(document.getElementById('k').value),
-    arcade: document.getElementById('arcade').checked,
-    streak: parseFloat(document.getElementById('streak').value),
-    decay: parseFloat(document.getElementById('decay').value)
-  };
+
+document.getElementById('runBtn').onclick = async () => {
+  const p = readParams();
+  setBusy(true);
   log('Starting simulation...');
-  const res = await fetch('/api/run', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
-  const j = await res.json(); log(JSON.stringify(j)); if (j.top) renderTop(j.top);
+  try {
+    const res = await fetch('/api/run', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        matches: p.matches, seed: p.seed, k: p.k,
+        arcade: p.arcade, streak: p.streak, decay: p.decay
+      })
+    });
+    const j = await res.json();
+    if(res.ok){
+      log(`OK: simulated ${j.matches} matches`);
+      if(j.top) renderTop(j.top);
+    } else {
+      log('Run failed: ' + (j.message || JSON.stringify(j)));
+    }
+  } catch (err){
+    log('Run error: ' + err);
+  } finally { setBusy(false); }
 };
-document.getElementById('top').onclick = async () => {
-  const res = await fetch('/api/top'); const j = await res.json(); log(JSON.stringify(j)); if (j.top) renderTop(j.top);
+
+document.getElementById('showTopBtn').onclick = async () => {
+  setBusy(true);
+  try {
+    const res = await fetch('/api/top');
+    const j = await res.json();
+    if(res.ok && j.top){ renderTop(j.top); log('Top loaded'); }
+    else { log('Top load failed: ' + (j.message || JSON.stringify(j))); }
+  } catch (err){
+    log('Top error: ' + err);
+  } finally { setBusy(false); }
 };
 </script>
 </body>

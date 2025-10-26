@@ -1,149 +1,237 @@
-"""
-Lightweight Flask web UI / API for Rank/ELO Simulator.
+from __future__ import annotations
 
-Endpoints:
- - GET  /           -> serves index.html (template)
- - POST /api/init   -> create sample players (if missing)
- - POST /api/run    -> run simulation with parameters
- - GET  /api/top    -> return top players (without running)
-
-This module prefers explicit, defensive parsing of inputs and returns
-JSON with helpful error messages on failure.
-"""
-from typing import Any, Dict, List, Optional
+import json
 import os
-import logging
+import tempfile
+import time
+from typing import List
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, send_file
 
-from src.simulator import Simulator
-from src.players import load_players, save_players
-from src.main import create_sample_players
+from src.players import Player, load_players, save_players
 
-# default players file (relative to project root)
 DEFAULT_PLAYERS_FILE = os.path.join("data", "players.json")
 
-app = Flask(__name__, template_folder=os.path.join(
-    os.path.dirname(__file__), "..", "templates"
-))
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
+app = Flask(__name__, template_folder=os.path.join(os.getcwd(), "templates"))
+
+
+def ensure_data_dir() -> None:
+    """Ensure data directory exists."""
+    os.makedirs("data", exist_ok=True)
+
+
+def create_sample_players(n: int = 8) -> List[Player]:
+    """Create n sample Player objects."""
+    return [Player(id=i + 1, name=f"Player_{i+1}") for i in range(n)]
 
 
 @app.route("/")
-def index() -> Any:
-    """Serve the UI page."""
+def index() -> str:
+    """Serve main UI."""
     return render_template("index.html")
 
 
 @app.route("/api/init", methods=["POST"])
-def api_init() -> Any:
-    """Create and save sample players (overwrites only if missing)."""
+def api_init() -> tuple[dict, int]:
+    """Initialize players file with sample players."""
     try:
-        players = load_players(DEFAULT_PLAYERS_FILE)
-        if players:
-            return jsonify({"status": "ok", "message": "Players file already exists"}), 200
+        ensure_data_dir()
         players = create_sample_players(8)
         save_players(DEFAULT_PLAYERS_FILE, players)
-        return jsonify({"status": "ok", "message": "Sample players created"}), 201
-    except Exception as exc:  # pragma: no cover - top-level safety
-        logger.exception("Failed to init players")
-        return jsonify({"status": "error", "message": str(exc)}), 500
-
-
-def players_to_top(players: List[Any], count: int = 10) -> List[Dict[str, Any]]:
-    """Convert players list to simple top representation for UI."""
-    top: List[Dict[str, Any]] = []
-    for p in sorted(players, key=lambda x: -getattr(x, "rating", 0.0))[:count]:
-        tier = getattr(p, "tier", None) or {}
-        top.append({
-            "id": getattr(p, "id", None),
-            "name": getattr(p, "name", "Player"),
-            "rating": float(getattr(p, "rating", 0.0)),
-            "wins": getattr(p, "wins", 0),
-            "tier": {
-                "tier": tier.get("tier") if isinstance(tier, dict) else None,
-                "division": tier.get("division") if isinstance(tier, dict) else None,
-                "color": tier.get("color") if isinstance(tier, dict) else None,
-            },
-        })
-    return top
+        return {"status": "ok", "message": "Created 8 sample players"}, 200
+    except Exception as exc:  # pragma: no cover - top-level error handler
+        app.logger.exception("Error in api_init")
+        return {"status": "error", "message": "Failed to initialize players"}, 500
 
 
 @app.route("/api/top", methods=["GET"])
-def api_top() -> Any:
-    """Return the top players currently in players.json."""
-    try:
-        players = load_players(DEFAULT_PLAYERS_FILE) or []
-        return jsonify({"status": "ok", "top": players_to_top(players)}), 200
-    except Exception as exc:
-        logger.exception("Failed to load top")
-        return jsonify({"status": "error", "message": str(exc)}), 500
-
-
-@app.route("/api/run", methods=["POST"])
-def api_run() -> Any:
-    """
-    Run a simulation batch.
-
-    Expected JSON payload:
-      {matches:int, seed:(int|string|null), k:float, arcade:bool, streak:float, decay:float}
-    """
-    payload = request.get_json(silent=True) or {}
-    # defensive parsing with defaults
-    try:
-        matches = int(payload.get("matches", 100))
-    except (TypeError, ValueError):
-        matches = 100
-
-    seed_raw = payload.get("seed", None)
-    seed: Optional[int] = None
-    # allow empty string to mean None; if numeric string -> int; if non-numeric -> leave as None
-    if seed_raw in (None, ""):
-        seed = None
-    else:
-        try:
-            seed = int(seed_raw)
-        except (TypeError, ValueError):
-            # non-integer seed: leave as None and let simulator use randomness
-            seed = None
-
-    try:
-        k = float(payload.get("k", 32.0))
-    except (TypeError, ValueError):
-        k = 32.0
-
-    arcade = bool(payload.get("arcade", False))
-    try:
-        streak = float(payload.get("streak", 0.0))
-    except (TypeError, ValueError):
-        streak = 0.0
-    try:
-        decay = float(payload.get("decay", 0.0))
-    except (TypeError, ValueError):
-        decay = 0.0
-
+def api_top() -> tuple[dict, int]:
+    """Return top players (by rating)."""
     try:
         players = load_players(DEFAULT_PLAYERS_FILE)
         if not players:
-            # fallback: create sample players (non-destructive)
+            return {"status": "ok", "top": []}, 200
+        players_sorted = sorted(players, key=lambda p: -p.rating)
+        data = [
+            {
+                "id": p.id,
+                "name": p.name,
+                "rating": p.rating,
+                "tier": p.tier,
+                "win_streak": p.win_streak,
+            }
+            for p in players_sorted[:20]
+        ]
+        return {"status": "ok", "top": data}, 200
+    except Exception:  # pragma: no cover
+        app.logger.exception("Error in api_top")
+        return {"status": "error", "message": "Failed to load top players"}, 500
+
+
+@app.route("/api/players", methods=["GET"])
+def api_players_list() -> tuple[dict, int]:
+    """Return full players list."""
+    try:
+        players = load_players(DEFAULT_PLAYERS_FILE)
+        if not players:
+            return {"status": "ok", "players": []}, 200
+        players_sorted = sorted(players, key=lambda p: -p.rating)
+        data = [
+            {
+                "id": p.id,
+                "name": p.name,
+                "rating": p.rating,
+                "tier": p.tier,
+                "win_streak": p.win_streak,
+                "history": p.history,
+            }
+            for p in players_sorted
+        ]
+        return {"status": "ok", "players": data}, 200
+    except Exception:  # pragma: no cover
+        app.logger.exception("Error in api_players_list")
+        return {"status": "error", "message": "Failed to load players"}, 500
+
+
+@app.route("/api/players", methods=["POST"])
+def api_add_player() -> tuple[dict, int]:
+    """Add a new player via JSON payload {name, rating}."""
+    try:
+        payload = request.get_json() or {}
+        name = (payload.get("name") or "").strip()
+        rating = float(payload.get("rating", 1500.0))
+
+        if not name:
+            return {"status": "error", "message": "Player name is required"}, 400
+
+        ensure_data_dir()
+        players = load_players(DEFAULT_PLAYERS_FILE)
+        max_id = max((p.id for p in players), default=0)
+        new_player = Player(id=max_id + 1, name=name, rating=rating)
+        players.append(new_player)
+        save_players(DEFAULT_PLAYERS_FILE, players)
+        return {"status": "ok", "message": f"Added player {name}", "player": new_player.to_dict()}, 200
+    except Exception:  # pragma: no cover
+        app.logger.exception("Error in api_add_player")
+        return {"status": "error", "message": "Failed to add player"}, 500
+
+
+@app.route("/api/analytics", methods=["GET"])
+def api_analytics() -> tuple[dict, int]:
+    """Simple analytics: counts, avg rating, distribution buckets."""
+    try:
+        players = load_players(DEFAULT_PLAYERS_FILE)
+        if not players:
+            return {
+                "status": "ok",
+                "data": {
+                    "total_players": 0,
+                    "avg_rating": 0,
+                    "highest_rating": 0,
+                    "total_matches": 0,
+                    "rating_distribution": {"labels": [], "counts": []},
+                },
+            }, 200
+
+        total_players = len(players)
+        avg_rating = sum(p.rating for p in players) / total_players
+        highest_rating = max(p.rating for p in players)
+        total_matches = sum(len(p.history) for p in players) // 2
+
+        buckets: dict[int, int] = {}
+        for p in players:
+            bucket = int(p.rating // 100) * 100
+            buckets[bucket] = buckets.get(bucket, 0) + 1
+
+        sorted_buckets = sorted(buckets.items())
+        labels = [f"{b}-{b+99}" for b, _ in sorted_buckets]
+        counts = [c for _, c in sorted_buckets]
+
+        return {
+            "status": "ok",
+            "data": {
+                "total_players": total_players,
+                "avg_rating": avg_rating,
+                "highest_rating": highest_rating,
+                "total_matches": total_matches,
+                "rating_distribution": {"labels": labels, "counts": counts},
+            },
+        }, 200
+    except Exception:  # pragma: no cover
+        app.logger.exception("Error in api_analytics")
+        return {"status": "error", "message": "Failed to load analytics"}, 500
+
+
+@app.route("/api/run", methods=["POST"])
+def api_run() -> tuple[dict, int]:
+    """Run a batch simulation (delegates to Simulator if available)."""
+    payload = request.get_json() or {}
+    matches = int(payload.get("matches", 100))
+    seed = payload.get("seed", None)
+    k = float(payload.get("k", 32.0))
+    arcade = bool(payload.get("arcade", False))
+    streak = float(payload.get("streak", 0.0))
+    decay = float(payload.get("decay", 0.0))
+
+    try:
+        ensure_data_dir()
+        players = load_players(DEFAULT_PLAYERS_FILE)
+        if not players:
             players = create_sample_players(8)
 
-        sim = Simulator(players=players, k=k, arcade_mode=arcade,
-                        streak_bonus_pct=streak, decay_per_day=decay)
+        # Import Simulator here to avoid hard import if module missing
+        from src.simulator import Simulator
+
+        sim = Simulator(players=players, k=k, arcade_mode=arcade, streak_bonus_pct=streak, decay_per_day=decay)
         records = sim.run_batch(matches=matches, seed=seed)
-        # periodic decay example (30 days)
-        sim.apply_decay(inactive_seconds=30 * 24 * 3600)
         save_players(DEFAULT_PLAYERS_FILE, players)
 
-        top = players_to_top(players, count=10)
-        return jsonify({"status": "ok", "matches": len(records), "top": top}), 200
-    except Exception as exc:  # pragma: no cover - keep robust for user runs
-        logger.exception("Simulation failed")
-        return jsonify({"status": "error", "message": str(exc)}), 500
+        players_sorted = sorted(players, key=lambda p: -p.rating)
+        top = [
+            {"id": p.id, "name": p.name, "rating": p.rating, "tier": p.tier, "win_streak": p.win_streak}
+            for p in players_sorted[:10]
+        ]
+        return {"status": "ok", "matches": len(records), "top": top}, 200
+    except Exception:  # pragma: no cover
+        app.logger.exception("Error in api_run")
+        return {"status": "error", "message": "Failed to run simulation"}, 500
+
+
+@app.route("/api/reset", methods=["POST"])
+def api_reset() -> tuple[dict, int]:
+    """Reset (remove) players file."""
+    try:
+        if os.path.exists(DEFAULT_PLAYERS_FILE):
+            os.remove(DEFAULT_PLAYERS_FILE)
+        return {"status": "ok", "message": "All data reset successfully"}, 200
+    except Exception:  # pragma: no cover
+        app.logger.exception("Error in api_reset")
+        return {"status": "error", "message": "Failed to reset data"}, 500
+
+
+@app.route("/api/export", methods=["GET"])
+def api_export() -> tuple:
+    """Export players as JSON file (temporary file returned)."""
+    try:
+        players = load_players(DEFAULT_PLAYERS_FILE)
+        export_data = {"players": [p.to_dict() for p in players], "exported_at": time.time(), "total_players": len(players)}
+
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as tmpf:
+            json.dump(export_data, tmpf, indent=2)
+            temp_path = tmpf.name
+
+        # send_file will stream the file; we do not delete it here immediately
+        return send_file(temp_path, as_attachment=True, download_name=f"elo-simulation-{int(time.time())}.json", mimetype="application/json")
+    except Exception:  # pragma: no cover
+        app.logger.exception("Error in api_export")
+        return jsonify({"status": "error", "message": "Failed to export data"}), 500
 
 
 def run_web(host: str = "127.0.0.1", port: int = 5000, debug: bool = False) -> None:
-    """Convenience: start the Flask web server."""
-    logger.info("Starting web UI at http://%s:%s", host, port)
+    """Start Flask development server."""
+    ensure_data_dir()
     app.run(host=host, port=port, debug=debug)
+
+
+if __name__ == "__main__":  # pragma: no cover - start server when executed directly
+    run_web(debug=True)
